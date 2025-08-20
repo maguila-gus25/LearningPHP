@@ -6,46 +6,43 @@ echo "Bem-vindo(a) ao screen match!\n";
 
 $nomeFilme = "Top Gun - Maverick";
 
-
 $anoLancamento = 2022;
-$quantidadeDeNotas = 6;
-$somaDeNotas = 0;
-$Notas = [];
 
-for ($contador = 1; $contador < 6; $contador++) {
+$quantidadeDeNotas = $argc - 1;
+$notas = [];
+
+for ($contador = 1; $contador < $argc; $contador++) {
     $notas[] = (float) $argv[$contador];
 }
 
-$notaFilme = mediaNotas($notas, $quantidadeDeNotas);
+$notaFilme = array_sum($notas) / $quantidadeDeNotas;
 $planoPrime = true;
 
 $incluidoNoPlano = incluidoNoPlano($planoPrime, $anoLancamento);
 
-$genero = match ($nomeFilme) {
-    "Top Gun - Maverick" => "ação",
-    "Se beber não case" => "comédia",
-    "Thor: Ragnarok" => "super-herói",
-};
-
-echo "Nome do filme: $nomeFilme\n";
+echo "Nome do filme: " . $nomeFilme . "\n";
 echo "Nota do filme: $notaFilme\n";
 echo "Ano de lançamento: $anoLancamento\n";
 
 exibeMensagemLancamento($anoLancamento);
 
+$genero = match ($nomeFilme) {
+    "Top Gun - Maverick" => "ação",
+    "Thor: Ragnarok" => "super-herói",
+    "Se beber não case" => "comédia",
+    default => "gênero desconhecido",
+};
+
 echo "O gênero do filme é: $genero\n";
 
-
-//Se passamos os parâmetros da função com um dicionário, 
-//A função lerá os nomes corretamente independente da ordem.
 $filme = criaFilme(
-    nome: "Thor: Ragnarok",
-    anoLancamento: 2021,
     nota: 7.8,
-    genero: "super-herói"
+    genero: "super-herói",
+    anoLancamento: 2021,
+    nome: "Thor: Ragnarok",
 );
 
-echo $filme["nome"];
+echo $filme["ano"];
 
 var_dump($notas);
 sort($notas);
@@ -59,15 +56,5 @@ var_dump($posicaoDoisPontos);
 
 var_dump(substr($filme['nome'], 0, $posicaoDoisPontos));
 
-$filme = criaFilme(
-    nota: 7.8,
-    genero: "super-herói",
-    anoLancamento: 2021,
-    nome: "Thor: Ragnarok",
-);
-
-echo $filme["ano"];
-
 $filmeComoStringJson = json_encode($filme);
-
 file_put_contents(__DIR__ . '/filme.json', $filmeComoStringJson);
