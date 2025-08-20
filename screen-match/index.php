@@ -1,13 +1,13 @@
 <?php
 
-require __DIR__ . "/funcoes.php";
+require __DIR__ . "/src/funcoes.php";
 
 echo "Bem-vindo(a) ao screen match!\n";
 
 $nomeFilme = "Top Gun - Maverick";
 
-$anoLancamento = 2022;
 
+$anoLancamento = 2022;
 $quantidadeDeNotas = 6;
 $somaDeNotas = 0;
 $Notas = [];
@@ -51,21 +51,23 @@ var_dump($notas);
 sort($notas);
 var_dump($notas);
 $menorNota = min($notas);
-var_dump($menorNota); 
+var_dump($menorNota);
 
-var_dump($filme['nome']); 
+var_dump($filme['nome']);
 $posicaoDoisPontos = strpos($filme['nome'], ':');
 var_dump($posicaoDoisPontos);
 
-var_dump(substr($filme['nome'], 0, $posicaoDoisPontos)); 
+var_dump(substr($filme['nome'], 0, $posicaoDoisPontos));
 
-$filme = [
-    "nome" => "Thor: Ragnarok",
-    "ano" => 2021,
-    "nota" => 7.8,
-    "genero" => "super-herói",
-];
+$filme = criaFilme(
+    nota: 7.8,
+    genero: "super-herói",
+    anoLancamento: 2021,
+    nome: "Thor: Ragnarok",
+);
 
-$filmeComoStringJson = json_encode($filme); 
+echo $filme["ano"];
+
+$filmeComoStringJson = json_encode($filme);
 
 file_put_contents(__DIR__ . '/filme.json', $filmeComoStringJson);
