@@ -36,12 +36,14 @@ exibeMensagemLancamento($anoLancamento);
 echo "O gênero do filme é: $genero\n";
 
 
-
-$filme = [
-    "nome" => "Thor", 
-    "ano" => 2021, 
-    "nota" => 7,8, 
-    "genero" => "super-herói"];
+//Se passamos os parâmetros da função com um dicionário, 
+//A função lerá os nomes corretamente independente da ordem.
+$filme = criaFilme(
+    nome: "Thor: Ragnarok",
+    anoLancamento: 2021,
+    nota: 7.8,
+    genero: "super-herói"
+);
 
 echo $filme["nome"];
 

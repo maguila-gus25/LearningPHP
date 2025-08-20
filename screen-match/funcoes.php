@@ -18,3 +18,13 @@ function incluidoNoPlano(bool $planoPrime, int $anoLancamento): bool {
 function mediaNotas($notas, int $quantidadeDeNotas): float{
     return array_sum($notas) / $quantidadeDeNotas;
 }
+
+function criaFilme(string $nome, int $anoLancamento, float $nota, string $genero) : array {
+
+    return [
+        'nome' => $nome,
+        'ano' => $anoLancamento,
+        'nota' => $nota,
+        'genero' => $genero
+    ]; 
+}
