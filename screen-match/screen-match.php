@@ -56,3 +56,14 @@ $posicaoDoisPontos = strpos($filme['nome'], ':');
 var_dump($posicaoDoisPontos);
 
 var_dump(substr($filme['nome'], 0, $posicaoDoisPontos)); 
+
+$filme = [
+    "nome" => "Thor: Ragnarok",
+    "ano" => 2021,
+    "nota" => 7.8,
+    "genero" => "super-herói",
+];
+
+$filmeComoStringJson = json_encode($filme); 
+
+file_put_contents(__DIR__ . '/filme.json', $filmeComoStringJson);
