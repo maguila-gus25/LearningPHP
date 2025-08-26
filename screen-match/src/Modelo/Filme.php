@@ -1,18 +1,15 @@
 <?php
 
 class Filme {
-        private string $nome = 'Nome padrão';
-        private int $anoLancamento = 2024;
-        private string $genero = 'ação';
-        private array $notas;
+    private array $notas;
 
-        public function __contruct(
-            string $nome,
-            int $anoLancamento,
-            string $genero
-        ) {
-            $this->notas = [];
-        }
+    public function __construct(
+        public readonly string $nome,
+        public readonly int $anoLancamento,
+        public readonly Genero $genero
+    ) {
+        $this->notas = [];
+    }
 
         //Getter
         public function anoLancamento(): int 
@@ -45,4 +42,5 @@ class Filme {
 
             return $somaNotas / $quantidadeDeNotas;
         }
+
     }   

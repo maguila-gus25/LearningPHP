@@ -1,13 +1,15 @@
 <?php
 
+require __DIR__ . "/src/Modelo/Genero.php";
 require __DIR__ . "/src/Modelo/Filme.php";
 
 echo "Bem-vindo(a) ao ScreenMatch\n";
 
-$filme = new Filme();
-$filme->defineAnoLancamento(2021);
-$filme->defineNome('Thor - Ragnarok');
-$file->defineGenero('super-heroi');
+$filme = new Filme(
+    'Thor: Ragnarok',
+    2021,
+    Genero::SuperHeroi
+);
 /*
 $filme->nome = 'Thor - Ragnarok';
 $filme->anoLancamento = 2021;
