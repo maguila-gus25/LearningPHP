@@ -8,7 +8,8 @@ echo "Bem-vindo(a) ao ScreenMatch\n";
 $filme = new Filme(
     'Thor: Ragnarok',
     2021,
-    Genero::SuperHeroi
+    Genero::SuperHeroi,
+    180
 );
 /*
 $filme->nome = 'Thor - Ragnarok';

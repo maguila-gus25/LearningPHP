@@ -1,28 +1,27 @@
-<?php
+<p? <?php
 
-class Filme {
+class Serie
+{
     private array $notas;
 
     public function __construct(
         public readonly string $nome,
         public readonly int $anoLancamento,
         public readonly Genero $genero,
-        public readonly int $duracaoEmMinutos
     ) {
         $this->notas = [];
     }
 
-    public function avalia(float $nota) : void 
+    public function avalia(float $nota): void
     {
         $this->notas[] = $nota;
     }
 
-    public function media(): float 
+    public function media(): float
     {
         $somaNotas = array_sum($this->notas);
-        $quantidadeDeNotas = count($this->notas);
+        $quantidadeNotas = count($this->notas);
 
-        return $somaNotas / $quantidadeDeNotas;
+        return $somaNotas / $quantidadeNotas;
     }
-
-}   
+}
