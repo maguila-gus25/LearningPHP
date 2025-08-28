@@ -2,8 +2,9 @@
 
 require __DIR__ . "/src/Modelo/Genero.php";
 require __DIR__ . "/src/Modelo/Titulo.phP";
-require __DIR__ . "/src/Modelo/Filme.php";
 require __DIR__ . "/src/Modelo/Serie.php";
+require __DIR__ . "/src/Modelo/Filme.php";
+require __DIR__ . "/src/Calculos/CalculadoraDeMaratona.php";
  
 
 echo "Bem-vindo(a) ao ScreenMatch\n";
@@ -36,3 +37,10 @@ echo $serie->anoLancamento . "\n";
 echo $serie->avalia(8);
 
 echo $serie->media() . "\n";
+
+$calculadora = new CalculadoraDeMaratona();
+$calculadora->inclui($filme);
+$calculadora->inclui($serie);
+$duracao = $calculadora->duracao();
+
+echo "Para essa maratona, você precisa de $duracao minutos";
